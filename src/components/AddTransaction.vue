@@ -10,28 +10,31 @@
         >Amount <br />
         (negative - expense, positive - income)</label
       >
-      <input type="text" id="amount" v-model="amount" placeholder="Enter amount..." />
+      <input
+        type="text"
+        id="amount"
+        v-model="amount"
+        placeholder="Enter amount..."
+      />
     </div>
     <button class="btn">Add transaction</button>
   </form>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import { useToast } from 'vue-toastification';
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
 
+const text = ref("");
+const amount = ref("");
 
-const text = ref('');
-const amount = ref('');
-
-const emit = defineEmits(['transactionSubmitted']);
+const emit = defineEmits(["transactionSubmitted"]);
 
 const toast = useToast();
 
- const onSubmit= () => {
-  if(!text.value || !amount.value )  {
-    toast.error('Both fields must be filled.');
+const onSubmit = () => {
+  if (!text.value || !amount.value) {
+    toast.error("Both fields must be filled.");
     return;
   }
   const transactionData = {
@@ -39,10 +42,9 @@ const toast = useToast();
     amount: parseFloat(amount.value),
   };
 
-  emit('transactionSubmitted', transactionData);
+  emit("transactionSubmitted", transactionData);
 
-
-  text.value= '';
-  amount.value= '';
- };
+  text.value = "";
+  amount.value = "";
+};
 </script>
