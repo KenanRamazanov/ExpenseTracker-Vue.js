@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-imporcreateApp, t Toast from 'vue-toastification';
+import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
 import './assets/style.css';
 import App from './App.vue';
