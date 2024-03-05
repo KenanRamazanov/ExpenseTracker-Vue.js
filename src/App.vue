@@ -15,7 +15,12 @@ import IncomeExpense from "./components/IncomeExpenses.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 
+
 import { ref, computed } from "vue";
+
+import { useToast } from 'vue-toastification';
+
+const toast = useToast();
 
 const transactions = ref([
   { id: 1, text: "Flower", amount: -19.99 },
@@ -50,9 +55,7 @@ const handleTransactionSubmitted = (transactionData) => {
     amount: transactionData.amount,
   });
 
-  saveTransactionsToLocalStorage();
-
-  toast.success("Transaction added.");
+toast.success('Transaction added');
 };
 
 const generateUniqueId = () => {
